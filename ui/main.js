@@ -4,8 +4,9 @@ var img=document.getElementById("madi");
 var leftmargin=0;
 function moveright(){
     leftmargin=leftmargin+5;
+    img.style.marginleft=marginleft+"px";
 }
 img.onclick=function(){
     var interval=setInterval(moveright,50);
     element.innerHTML="You clicked the image!";
-}
+};
