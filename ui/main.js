@@ -1,16 +1,15 @@
-console.log('Loaded!');
-var element=document.getElementById("main-text");
-var img=document.getElementById("madi");
-var marginLeft=0,i=0;
-function moveright(){
-    if(i<300){
-    marginLeft=marginLeft+5;
-    img.style.marginLeft=marginLeft+"px";
-    i=i+5;
-    }
-}
-img.onclick=function(){
-    var interval=setInterval(moveright,50);
-    element.innerHTML="You clicked the image!";
+var button=document.getElementById('counter');
+button.onclick=function(){
+	var request=new XMLHttpRequest();
+	request.onreadystatechange=function (){
+		if(request.readyState===XMLHttpRequest.DONE){
+			if(request.status===200){
+				var counter=request.reponseText;
+				var span=document.getElementById('count');
+				span.innerHTML=counter.toString();
+			}
+		}
+	};
+	request.open('GET','http://byash.imad.hasura-app.io/counter',true);
+	request.send();
 };
-
