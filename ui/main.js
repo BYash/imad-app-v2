@@ -1,3 +1,4 @@
+console.log(process.env.DB_PASSWORD);
 var button=document.getElementById('counter');
 button.onclick=function (){
     var request = new XMLHttpRequest();
