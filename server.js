@@ -17,6 +17,9 @@ app.use(morgan('combined'));
 var articles = {
     'article-one': {
         title: 'Article one | Yash B',
+        links:  <a href="/">Home</a>
+                <a href="/article-two/">Article-two</a>
+                <a href="/article-three/">Article-three</a>,
         heading: 'Article one',
         content: `<p>
                     This is the content of article one.This is the content of article one.This is the content of article one.
@@ -36,6 +39,9 @@ var articles = {
     },
     'article-two': {
         title: 'Article two | Yash B',
+        links:  <a href="/">Home</a>
+                <a href="/article-one/">Article-two</a>
+                <a href="/article-three/">Article-three</a>,
         heading: 'Article two',
         content: `
             <p>
@@ -44,6 +50,9 @@ var articles = {
     },
     'article-three': {
         title: 'Article three | Yash B',
+        links: <a href="/">Home</a>
+                <a href="/article-one/">Article-two</a>
+                <a href="/article-two/">Article-three</a>,
         heading: 'Article three',
         content:`
             <p>
@@ -53,7 +62,7 @@ var articles = {
 };
 
 function createTemplate (data) {
-    
+    var htmlTemplate = ``;
 }
 
 var pool = new Pool(config);
@@ -77,16 +86,16 @@ app.get('/counter', function (req, res) {
   res.send(counter.toString());
 });
 
-app.get('/article_one/', function (req, res) {
+app.get('/article-one/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article_one.html'));
 });
 
-app.get('/article_two/', function (req, res) {
+app.get('/article-two/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
 
-app.get('/article_three', function (req, res) {
-  res.send('Article-three requested and will be served here');
+app.get('/article-three/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
 
 app.get('articles/:articleName',function(req,res){
