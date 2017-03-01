@@ -17,9 +17,9 @@ app.use(morgan('combined'));
 var articles = {
     'article-one': {
         title: 'Article one | Yash B',
-        links:  <a href="/">Home</a>,
+        links: ` <a href="/">Home</a>,
                 <a href="/article-two/">Article-two</a>
-                <a href="/article-three/">Article-three</a>,
+                <a href="/article-three/">Article-three</a>`,
         heading: 'Article one',
         content: `<p>
                     This is the content of article one.This is the content of article one.This is the content of article one.
