@@ -39,9 +39,9 @@ var articles = {
     },
     'article-two': {
         title: 'Article two | Yash B',
-        links:  <a href="/">Home</a>
+        links: ` <a href="/">Home</a>
                 <a href="/article-one/">Article-one</a>
-                <a href="/article-three/">Article-three</a>,
+                <a href="/article-three/">Article-three</a>`,
         heading: 'Article two',
         content: `
             <p>
@@ -50,9 +50,9 @@ var articles = {
     },
     'article-three': {
         title: 'Article three | Yash B',
-        links: <a href="/">Home</a>
+        links: `<a href="/">Home</a>
                 <a href="/article-one/">Article-one</a>
-                <a href="/article-two/">Article-two</a>,
+                <a href="/article-two/">Article-two</a>`,
         heading: 'Article three',
         content:`
             <p>
