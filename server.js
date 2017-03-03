@@ -90,6 +90,10 @@ function createTemplate (data) {
     return htmlTemplate;
 }
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
 var pool = new Pool(config);
 app.get('/test-dtb',function(req,res){
     pool.query('select * from test',function(err,result){
@@ -99,10 +103,6 @@ app.get('/test-dtb',function(req,res){
            res.send(JSON.stringify(result));
        }
     });
-});
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 var counter=0;
@@ -115,11 +115,7 @@ var names = [];
 app.get('/submit-name', function(req,res){
    var name = req.query.name;
    names.push(name);
-});
-
-app.get('/:articleName', function (req, res) {
-    var articleName = req.params.articleName;
-  res.send(createTemplate(articles[articleName]));
+   res.send(JSON.stringify(names));
 });
 
 app.get('articles/:articleName',function(req,res){
